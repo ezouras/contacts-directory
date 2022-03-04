@@ -1,0 +1,7 @@
+@import "variables";
+
+.contacts-container {
+  display: flex;
+  background: $background_grey;
+  min-height: 100vh;
+}

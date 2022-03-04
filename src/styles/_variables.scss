@@ -1,8 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400&family=Lato:wght@100;300&family=Sacramento&display=swap');
 /** colors **/
-$cardtitle: #989898;
-$grey_back: #E8E8E8; //or #F0F0F0
-$card_data: #303030;
-$title_black: #181818;
+$title_black: #989898;
+$data_grey: #E8E8E8; //or #F0F0F0
+$background_grey: #F5F5F5;
+$data_grey: #303030;
+$med_black: #181818;
+$light_black: #282828;
 $pop_blue: #1F51FF;
+/** fonts **/
+//font-family
+$comforta_font_family: 'Comfortaa', cursive;
+$lato_font_family: 'Lato', sans-serif;
+$sacrimento_font_family: 'Sacramento', cursive;
 /** shadows **/
 $shadow: 1px 4px 6px rgba(60, 64, 67, 0.16);
+/** fonts **/
+$baseFontSize: 16;
+$m_fnt_sz: 0.9375rem; //15px
+$title_font: 1.3rem; //21px
+$fnt_xsm: 0.75rem; //12px
+$fnt_sm: 0.8125rem; //13px;
+$subtitle_font: 1.0625rem; //17px;
+/** padding **/
+$padding-left: 7rem; //105 pixels;
+$padding-right: 8rem; //120 pixels;
+$component-padding: 1.25rem; //line height
+$m_ln_ht: 0.9375rem; //15px
+$title_line_height: 1.5rem; //25p;
+
+%card {
+  cursor: pointer;
+  padding: 1rem;
+  width: 17.7rem;
+  height: 13rem;
+  background: white;
+  box-shadow: $shadow;
+  border-radius: 5px;
+  margin: 1rem 1rem 1rem 0;
+  overflow: hidden;
+}

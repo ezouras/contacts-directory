@@ -8,6 +8,7 @@ import { ContactsHomeComponent } from './contacts-home/contacts-home.component';
 import { DetailsComponent } from './details/details.component';
 import { ContactsListComponent } from './contacts-home/contacts-list/contacts-list.component';
 import { ContactsSearchComponent } from './contacts-home/contacts-search/contacts-search.component';
+import { CardComponent } from './shared/card/card.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ContactsSearchComponent } from './contacts-home/contacts-search/contact
     ContactsHomeComponent,
     DetailsComponent,
     ContactsListComponent,
-    ContactsSearchComponent
+    ContactsSearchComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

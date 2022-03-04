@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'variables';
+
+body,
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: $comforta_font_family;
+  background: white;
+  color: $med_black;
+  font-weight: normal;
+  font-size: $m_fnt_sz;
+  line-height: $m_ln_ht;
+}
+
+*,
+::after,
+::before {
+  box-sizing: inherit;
+}
