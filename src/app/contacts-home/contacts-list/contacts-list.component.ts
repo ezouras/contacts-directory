@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ContactStateService } from '../../shared/services/contact-state.service';
+import { Contact } from '../../shared/models/main-app-models';
 @Component({
   selector: 'app-contacts-list',
   templateUrl: './contacts-list.component.html',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactsListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private contactStateService: ContactStateService) { }
 
   ngOnInit(): void {
+    this.contactStateService.getContacts$().subscribe(
+      (contacts: Contact[]) => console.log("got contacts", contacts)
+    )
   }
 
 }
