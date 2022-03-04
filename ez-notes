@@ -1,0 +1,53 @@
+# WebApp
+
+## To Do:
+
+The goal of this coding challenge is to build a simple
+front-end directory application using Angular.
+The requirements for this application are as follows:
+
+- A list of contact previews sorted alphabetically by last name.
+Each contact preview should contain the first and last name of
+the contact, as well as their phone number if available
+
+- A search bar that takes user input and filters the
+contact list via first or last name
+- When a contact is selected from the list (via a mouse click),
+the contact details should display on the screen with all
+the information available
+- Make functional add, edit, and delete contact buttons.
+The changes made via these buttons do not need to survive
+refreshing the application
+- BONUS: Make the contact data persistent i.e. edits
+survive refresh and application rebuilds
+
+## Development server
+
+Run `ng serve` for a dev server.
+Navigate to `http://localhost:4200/`.
+The app will automatically reload if you
+change any of the source files.
+
+## Other Notes
+
+- The functionality of the application is the
+most important part, but some use of CSS to
+make a nice looking UI is encouraged
+- Boilerplate has been provided and the entire
+application can be built within the provided app
+component, but feel free to create new files and
+organize your code as you see fit
+- You are allowed to use third party libraries,
+but be prepared to justify any choices made in this area
+- Unit tests are optional
+- Any questions please feel free to reach out
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma]
+(https://karma-runner.github.io).
+
+## Further help
+
+To get more help on the Angular CLI use `ng help`
+or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
