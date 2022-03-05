@@ -1,0 +1,31 @@
+@import "variables";
+
+.details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #AFEEEE;
+  color: $data_grey;
+
+  .details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    width: 100%;
+    font-size: larger;
+    font-weight: bold;
+    padding-bottom: 2rem;
+  }
+
+  form {
+    width: 75%;
+    background: $pop_blue;
+    color: white;
+    border-radius: 10px;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+}

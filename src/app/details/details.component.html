@@ -1,1 +1,36 @@
-<p>details works!</p>
+<div *ngIf="contact" class="details-container">
+  <div class="details-header">
+    <div class="details-title">
+      Contact Details
+    </div>
+    <div class="details-edit">
+      Edit Details
+    </div>
+  </div>
+  <form [formGroup]="contactForm" (ngSubmit)="contactFormSubmit(contactForm.value)">
+    <label>
+      First Name
+      <input formControlName="firstname" type="text" name="firstName" value="" required>
+    </label>
+    <label>
+      Last Name
+      <input formControlName="lastname" type="text" name="lastName" value="" required>
+    </label>
+    <label>
+      Email
+      <input formControlName="email" type="email" name="email" value="">
+    </label>
+    <label>
+      Birthday
+      <input formControlName="dob" type="date" name="dob" value="">
+    </label>
+    <label>
+      Phone
+      <input formControlName="phone" type="text" name="phone" value="">
+    </label>
+    <input type="submit" />
+    <div *ngIf="formError" class="alert">
+      Please enter contact First Name
+    </div>
+  </form>
+</div>

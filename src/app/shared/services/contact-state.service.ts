@@ -27,8 +27,8 @@ export class ContactStateService {
   }
 
   inititialzeAndGetContacts(assetContacts: any): Contact[] {
-    return assetContacts.map((contact: any) => {
-      return { ...contact, isSelected: false, isFavorite: false }
+    return assetContacts.map((contact: any, index: number) => {
+      return { ...contact, isSelected: false, isFavorite: false, id: index.toString() }
     })
   }
 
@@ -37,6 +37,11 @@ export class ContactStateService {
   }
   getSelectedContactValue(): Contact {
     return this.selectedContactB$.value;
+  }
+
+  getContactById(id: string): Contact {
+    return this.contactsB$.value.filter(contact => contact.id === id)[0]
+
   }
 
 

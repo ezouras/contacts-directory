@@ -1,6 +1,8 @@
 Config setups ;
 1/"strictPropertyInitialization": false in tsconfig
-
+2/ No directive found with exportAs 'ngForm'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+add to imports array in app module
 
 # WebApp
 

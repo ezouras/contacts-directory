@@ -9,16 +9,13 @@ import { Contact } from "../models/main-app-models";
 
 export class CardComponent implements OnInit {
   @Input() contact: Contact;
-  contactId: number;
+
 
   constructor() {
 
   }
 
   ngOnInit(): void {
-    if (this.contact) {
-      this.contactId = this.contact.dob;
-    }
   }
 
 }

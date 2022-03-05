@@ -2,9 +2,10 @@ export interface Contact {
   first: string;
   last: string;
   email: string;
-  address: string;
+  address?: string;
   phone: string;
-  dob: number;
+  dob?: number;
   isSelected: boolean;
   isFavorite: boolean;
+  id: string
 }
