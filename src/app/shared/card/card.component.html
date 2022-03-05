@@ -1,1 +1,37 @@
-<p>card works!</p>
+<div class="card-container">
+  <div class="favorite card-row">
+    <div>Contact</div>
+    <div *ngIf="contact.isFavorite" class="material-icons">star</div>
+    <div *ngIf="!contact.isFavorite" class="material-icons">star_border</div>
+  </div>
+  <div class="card-main-info card-row">
+    <div class="full-name">
+      {{contact.first}} {{contact.last}}
+    </div>
+    <div class="phone">
+      {{contact.phone |phone}}
+    </div>
+  </div>
+  <div class="dob-container card-row">
+    <div class="dob-title card-title">
+      Date of birth:
+    </div>
+    <div class="dob">
+      {{contact.dob | date}}
+    </div>
+  </div>
+  <div class="email-container card-row">
+    <div class="email-title card-title">
+      Email:
+    </div>
+    <div class="email">
+      {{contact.email}}
+    </div>
+  </div>
+  <div class="details">
+    <div [routerLink]="['/contacts',contact.dob]" routerLinkActive="active">
+      details
+    </div>
+    <div class="material-icons">keyboard_arrow_right</div>
+  </div>
+</div>

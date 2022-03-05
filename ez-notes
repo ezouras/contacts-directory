@@ -1,3 +1,7 @@
+Config setups ;
+1/"strictPropertyInitialization": false in tsconfig
+
+
 # WebApp
 
 ## To Do:

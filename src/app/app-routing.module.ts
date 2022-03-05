@@ -9,15 +9,14 @@ const routes: Routes = [
   {
     path: 'contacts',
     component: ContactsHomeComponent,
-    data: { animation: 'ContactsHomePage' },
-    children: [{
-      path: 'details/:dob',
-      component: DetailsComponent,
-      data: { animation: 'ContactDetailsPage' }
-    }]
+    data: { animation: 'ContactsHomePage' }
+  },
+  {
+    path: 'contacts/:id',
+    component: DetailsComponent,
+    data: { animation: 'ContactDetailsPage' }
   },
   { path: '', redirectTo: '/contacts', pathMatch: 'full' },
-  { path: '**', component: ContactsHomeComponent }
 ];
 
 

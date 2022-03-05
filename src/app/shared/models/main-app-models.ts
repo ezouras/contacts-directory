@@ -6,4 +6,5 @@ export interface Contact {
   phone: string;
   dob: number;
   isSelected: boolean;
+  isFavorite: boolean;
 }

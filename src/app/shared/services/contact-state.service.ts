@@ -19,7 +19,6 @@ export class ContactStateService {
 
   constructor() {
     this.contacts = this.inititialzeAndGetContacts(contacts.slice());
-    console.log('contacts are ', this.contacts)
     this.contactsB$ = new BehaviorSubject<Contact[]>(this.contacts);
     this.selectedContactB$ = new BehaviorSubject<Contact>(this.contacts[0]);
     this.selectedContact$ = this.selectedContactB$.asObservable();
@@ -29,7 +28,7 @@ export class ContactStateService {
 
   inititialzeAndGetContacts(assetContacts: any): Contact[] {
     return assetContacts.map((contact: any) => {
-      return { ...contact, isSelected: false }
+      return { ...contact, isSelected: false, isFavorite: false }
     })
   }
 

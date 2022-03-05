@@ -2,4 +2,47 @@
 
 .card-container {
   @extend %card;
+
+  .card-row {
+    padding: 0.5rem;
+  }
+
+  .card-title {
+    margin-bottom: 0.2rem;
+    color: $grey;
+  }
+
+  .favorite {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: $turq_box;
+    color: white;
+  }
+
+  .card-main-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.2rem;
+  }
+
+  .full-name {
+    color: $light_black;
+    font-weight: bold;
+    font-size: larger;
+  }
+
+  .details {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    transition: all 0.25s;
+    color: $grey;
+  }
+
+  .details:hover {
+    cursor: pointer;
+    color: $med_black;
+    /*lighten($grey, 20%);*/
+  }
 }

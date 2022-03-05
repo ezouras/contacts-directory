@@ -4,4 +4,13 @@
   display: flex;
   background: $background_grey;
   min-height: 100vh;
+
+  app-contacts-list {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  app-contacts-search {
+    padding: 0.5rem;
+  }
 }
