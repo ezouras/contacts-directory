@@ -62,11 +62,21 @@ export class ContactStateService {
   }
 
   editContact(oldContact: Contact, newValues: any) {
-    console.log("edit contact")
+    this.contacts = this.contacts.map(contact => {
+      if (oldContact.id === contact.id) {
+        contact = { ...oldContact, ...newValues };
+      }
+      return contact
+    })
+    this.contactsB$.next(this.contacts)
   }
 
   addContact(contactValues: any) {
-    console.log("adding new contact")
+    const id = this.contactsB$.value.length.toString();
+    const newContact: Contact = { ...contactValues, isSelected: false, isFavorite: false, id }
+    this.contacts.push(newContact)
+    this.contactsB$.next(this.contacts)
+
   }
 
   setFilteredContacts(searchStr: string) {
