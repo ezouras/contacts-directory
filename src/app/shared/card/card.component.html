@@ -6,26 +6,43 @@
   </div>
   <div class="card-main-info card-row">
     <div class="full-name">
-      {{contact.first}} {{contact.last}}
+      {{contact.first | titlecase}} {{contact.last| titlecase}}
     </div>
     <div class="phone">
       {{contact.phone |phone}}
+    </div>
+  </div>
+  <div class="address-container card-row">
+    <div class="card-title">
+      Address:
+    </div>
+    <div *ngIf="contact.address">
+      {{contact.address| titlecase}}
+    </div>
+    <div *ngIf="!contact.address">
+      None given
     </div>
   </div>
   <div class="dob-container card-row">
     <div class="dob-title card-title">
       Date of birth:
     </div>
-    <div class="dob">
+    <div *ngIf="contact.dob" class="dob">
       {{contact.dob | date}}
+    </div>
+    <div *ngIf="!contact.dob" class="dob">
+      None given
     </div>
   </div>
   <div class="email-container card-row">
     <div class="email-title card-title">
       Email:
     </div>
-    <div class="email">
+    <div *ngIf="contact.email" class="email">
       {{contact.email}}
+    </div>
+    <div *ngIf="!contact.email" class="email">
+      None given
     </div>
   </div>
   <div class="details">

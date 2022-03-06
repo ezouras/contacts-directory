@@ -9,9 +9,10 @@ $med_black: #181818;
 $light_black: #282828;
 $pop_blue: #009c9e;
 $turq_box: #0086b3;
+$btn_grey: #585858;
 /** fonts **/
 //font-family
-$comforta_font_family: 'Comfortaa', cursive;
+$comforta_font_family: 'Comfortaa';
 $lato_font_family: 'Lato', sans-serif;
 $sacrimento_font_family: 'Sacramento', cursive;
 /** shadows **/
@@ -33,7 +34,7 @@ $title_line_height: 1.5rem; //25p;
 %card {
   padding: 1rem;
   width: 100%;
-  height: 13rem;
+  height: 17rem;
   background: white;
   box-shadow: $shadow;
   border-radius: 5px;

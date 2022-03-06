@@ -1,1 +1,69 @@
-<p>contact-form works!</p>
+<div class="form-container">
+  <form [formGroup]="contactForm" (ngSubmit)="contactFormSubmit(contactForm.value)">
+    <div class='form-row'>
+      <label>
+        First Name
+        <input *ngIf="!isNew" formControlName="first" type="text" name="first" value="" [ngModel]="contact.first|titlecase">
+        <input *ngIf="isNew" formControlName="first" type="text" name="first" value="">
+      </label>
+    </div>
+    <div class='form-row'>
+      <label>
+        Last Name
+        <input *ngIf="!isNew" formControlName="last" type="text" name="last" value="" [ngModel]="contact.last|titlecase">
+        <input *ngIf="isNew" formControlName="last" type="text" name="last" value="">
+
+      </label>
+    </div>
+    <div class='form-row'>
+      <label>
+        Address
+        <div *ngIf="contact">
+          <input formControlName="address" type="text" name="address" [ngModel]="contact.address|titlecase">
+        </div>
+        <div *ngIf="!contact">
+          <input formControlName="address" type="text" name="address" value="">
+        </div>
+      </label>
+    </div>
+    <div class='form-row'>
+      <label>
+        Email
+        <div *ngIf="contact">
+          <input formControlName="email" class="form-control" type="email" name="email" [ngModel]="contact.email">
+        </div>
+        <div *ngIf="!contact">
+          <input formControlName="email" class="form-control" type="email" name="email" value="">
+        </div>
+      </label>
+    </div>
+    <div class='form-row'>
+      <label>
+        Birthday
+        <input formControlName="dob" type="date" name="dob" value="">
+      </label>
+    </div>
+    <div class='form-row'>
+      <label>
+        Phone
+        <div *ngIf="contact">
+          <input formControlName="phone" type="text" name="phone" [ngModel]="contact.phone |phone">
+        </div>
+        <div *ngIf="!contact">
+          <input formControlName="phone" type="text" name="phone" value="">
+        </div>
+      </label>
+    </div>
+    <div class="form-submit">
+      <div class="btn" (click)="contactFormSubmit(contactForm.value)">
+        Submit
+      </div>
+      <div class="btn" (click)="routeToMain()">
+        Cancel
+      </div>
+    </div>
+    <div *ngIf="formError" class="alert">
+      {{errorMessage}}
+    </div>
+  </form>
+</div>

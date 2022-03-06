@@ -1,0 +1,44 @@
+@import "variables";
+
+.contact-search-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  overflow: auto;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+
+  .contact-search {
+    width: 60%;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+
+    .contact-input-search {
+      border: 1px solid lightgrey;
+      border-radius: 15px;
+      width: 100%;
+      padding: 0.45rem;
+      outline: none;
+      margin-top: 0.1rem;
+    }
+  }
+
+  .btn {
+    color: $btn_grey;
+    padding: 0.3rem;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 15px;
+    border: 1px solid lightgrey;
+    transition: all 0.4s;
+  }
+
+  .btn:hover {
+    background: $btn_grey;
+    color: white;
+  }
+}

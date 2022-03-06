@@ -1,36 +1,67 @@
 <div *ngIf="contact" class="details-container">
+  <div (click)="back()" class="back-route">
+    <div class="material-icons">keyboard_arrow_left</div>
+    <div class="material-icons squish">keyboard_arrow_left</div>
+    <div>
+      back
+    </div>
+  </div>
   <div class="details-header">
     <div class="details-title">
       Contact Details
     </div>
-    <div class="details-edit">
+    <div (click)="routeToEdit()" class="details-edit">
       Edit Details
     </div>
   </div>
-  <form [formGroup]="contactForm" (ngSubmit)="contactFormSubmit(contactForm.value)">
-    <label>
-      First Name
-      <input formControlName="firstname" type="text" name="firstName" value="" required>
-    </label>
-    <label>
-      Last Name
-      <input formControlName="lastname" type="text" name="lastName" value="" required>
-    </label>
-    <label>
-      Email
-      <input formControlName="email" type="email" name="email" value="">
-    </label>
-    <label>
-      Birthday
-      <input formControlName="dob" type="date" name="dob" value="">
-    </label>
-    <label>
-      Phone
-      <input formControlName="phone" type="text" name="phone" value="">
-    </label>
-    <input type="submit" />
-    <div *ngIf="formError" class="alert">
-      Please enter contact First Name
+  <div class="details-info">
+    <div class='details-row'>
+      <div class="dr-title">
+        First Name:
+      </div>
+      <div class="dt-data">
+        {{contact.first|titlecase}}
+      </div>
     </div>
-  </form>
+    <div class='details-row'>
+      <div class="dr-title">
+        Last Name:
+      </div>
+      <div class="dt-data">
+        {{contact.last|titlecase}}
+      </div>
+    </div>
+    <div class='details-row'>
+      <div class="dr-title">
+        Address:
+      </div>
+      <div class="dt-data">
+        {{contact.address |titlecase}}
+      </div>
+    </div>
+    <div class='details-row'>
+      <div class="dr-title">
+        Email:
+      </div>
+      <div class="dt-data">
+        {{contact.email}}
+      </div>
+    </div>
+    <div class='details-row'>
+      <div class="dr-title">
+        Birthday:
+      </div>
+      <div class="dt-data">
+        {{contact.dob|date}}
+      </div>
+    </div>
+    <div class='details-row'>
+      <div class="dr-title">
+        Phone:
+      </div>
+      <div class="dt-data">
+        {{contact.phone|phone}}
+      </div>
+    </div>
+  </div>
 </div>

@@ -2,11 +2,30 @@
 
 .details-container {
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: #AFEEEE;
+  background-color: lighten(lightblue,15%);
   color: $data_grey;
+  min-height: 100vh;
+
+  .back-route {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 1rem;
+    top: 0.5rem;
+    transition: all 0.25s;
+
+    .squish {
+      margin-left: -15px;
+    }
+  }
+
+  .back-route:hover {
+    color: lighten($data_grey,30%);
+    cursor: pointer;
+  }
 
   .details-header {
     display: flex;
@@ -16,16 +35,41 @@
     width: 100%;
     font-size: larger;
     font-weight: bold;
-    padding-bottom: 2rem;
+    padding-top: 4rem;
+
+    .details-edit {
+      transition: all 0.25s;
+    }
+
+    .details-edit:hover {
+      color: lighten($data_grey,30%);
+      cursor: pointer;
+    }
   }
 
-  form {
+  .details-info {
     width: 75%;
-    background: $pop_blue;
+    background: $turq_box;
     color: white;
     border-radius: 10px;
     padding: 0.5rem;
     display: flex;
     flex-direction: column;
+
+    .details-row {
+      font-size: larger;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid darken(white, 20%);
+
+      .dr-title {
+        width: 40%;
+      }
+
+      .dr-data {
+        font-weight: bold;
+      }
+    }
   }
 }

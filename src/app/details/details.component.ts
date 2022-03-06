@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Contact } from "../shared/models/main-app-models";
 import { ContactStateService } from "../shared/services/contact-state.service"
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-details',
@@ -11,34 +11,30 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class DetailsComponent implements OnInit {
   contact: Contact;
-  contactForm: FormGroup;
-  formError: boolean = false;
+  editMode: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private contactStateService: ContactStateService,
-    private fb: FormBuilder) { }
+    private location: Location
+  ) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.contact = this.contactStateService.getContactById(id);
-      this.createContactForm()
+      this.contactStateService.setSelectedContact(this.contact)
     }
+
   }
 
-  createContactForm() {
-    this.contactForm = this.fb.group({
-      firstname: [this.contact.first, Validators.required],
-      lastname: [this.contact.last, Validators.required],
-      email: [this.contact.email, Validators.required],
-      phone: [this.contact.phone, Validators.required],
-      dob: [this.contact.dob]
-    });
+  back() {
+    this.location.back()
+  }
+  routeToEdit() {
+    this.router.navigate(['/', 'editContact', false]);
   }
 
-  contactFormSubmit(formValues: any) {
-    console.log("form is ", formValues)
-  }
 
 }

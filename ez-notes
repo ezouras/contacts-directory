@@ -3,7 +3,12 @@ Config setups ;
 2/ No directive found with exportAs 'ngForm'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 add to imports array in app module
-
+3/can't use a pipe as an input value without using ngModel
+<input formControlName="phone" type="text" name="phone" [ngModel]="contact.phone |phone">
+The ng-model directive binds the value of
+ HTML controls (input, select, text-area)
+to application data. It is a part of the FormsModule.
+ 
 # WebApp
 
 ## To Do:

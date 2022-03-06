@@ -57,23 +57,31 @@ export class ContactStateService {
   getContacts$(): Observable<Contact[]> {
     return this.contacts$;
   }
+  getContactsValue(): Contact[] {
+    return this.contactsB$.value;
+  }
 
-  /*getFilteredContacts(searchStr: string): Contact[] {
+  editContact(oldContact: Contact, newValues: any) {
+    console.log("edit contact")
+  }
+
+  addContact(contactValues: any) {
+    console.log("adding new contact")
+  }
+
+  setFilteredContacts(searchStr: string) {
     let filteredContacts: Contact[] = [];
+    searchStr = searchStr.toLowerCase();
     this.contacts.forEach((contact: Contact) => {
-      for (const contactKey in contact) {
-        const value = contact[contactKey as keyof contact]
-        if (typeof value === 'string') {
-          if (value.toLowerCase().includes(searchStr.toLowerCase())) {
-            if (!_.includes(filteredContacts, contact)) {
-              filteredContacts.push(contact);
-            }
-          }
-        }
+      const first = contact.first.toLowerCase().includes(searchStr);
+      const last = contact.last.toLowerCase().includes(searchStr);
+      if (first || last) {
+        filteredContacts.push(contact)
       }
     })
-    return filteredContacts;
 
-}*/
+    this.contactsB$.next(filteredContacts);
+
+  }
 
 }

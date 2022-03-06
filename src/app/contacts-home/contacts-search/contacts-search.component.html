@@ -1,1 +1,11 @@
-<p>contacts-search works!</p>
+<div class="contact-search-container">
+  <form class="contact-search" [formGroup]="searchForm">
+    <input formControlName="searchInput" class="contact-input-search" placeholder="Search contacts.." type="text">
+  </form>
+  <div class="btn" (click)="addNewContact()">
+    <div class="material-icons">add</div>
+    <div class="create-text">
+      contact
+    </div>
+  </div>
+</div>

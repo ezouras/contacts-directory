@@ -159,4 +159,18 @@ export const contacts = [
     phone: '3194807606',
     dob: 315792000000,
   },
+  {
+    first: 'Evie',
+    last: 'Orange',
+    email: 'evie.zouras@gmail.com',
+    address: '1060 west addison',
+    phone: '(773) 773-7373'
+  },
+  {
+    first: 'Evie',
+    last: 'Orange',
+    email: 'evie.zouras@gmail.com',
+    address: '1060 west addison',
+    phone: '(773) 773-7373'
+  }
 ];
