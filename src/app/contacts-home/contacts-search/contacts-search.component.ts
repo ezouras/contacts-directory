@@ -20,19 +20,27 @@ export class ContactsSearchComponent implements OnInit {
   searchForm = this.formBuilder.group({
     searchInput: ''
   });
+
   constructor(
     private contactStateService: ContactStateService,
     private formBuilder: FormBuilder,
     private router: Router) { }
 
   ngOnInit(): void {
+    const inputSearchValue: string = this.contactStateService.getLastInputSearchData();
+    this.searchForm.controls['searchInput'].setValue(inputSearchValue);
+    this.searchForm.valueChanges.subscribe((data: any) => {
+      this.contactStateService.setInputSearchData(data.searchInput)
+    });
+
     this.searchForm.valueChanges.pipe(
       debounceTime(200),
       map((data) => data.searchInput),
       distinctUntilChanged(),
-      switchMap(string => of(this.contactStateService.setFilteredContacts(string))),
-    ).subscribe();
-  }
+      switchMap(string => of(this.contactStateService.setFilteredContacts(string))))
+      .subscribe()
+  };
+
 
   addNewContact() {
     this.router.navigate(['/', 'editContact', true]);

@@ -15,22 +15,45 @@ export class ContactStateService {
   private selectedContactB$: BehaviorSubject<Contact>;
   private selectedContact$: Observable<Contact>;
   private filteredContacts: Contact[];
+  private inputSearchString: string = "";
 
 
   constructor() {
     this.contacts = this.inititialzeAndGetContacts(contacts.slice());
     this.contactsB$ = new BehaviorSubject<Contact[]>(this.contacts);
+    this.contacts$ = this.contactsB$.asObservable();
     this.selectedContactB$ = new BehaviorSubject<Contact>(this.contacts[0]);
     this.selectedContact$ = this.selectedContactB$.asObservable();
-    this.contacts$ = this.contactsB$.asObservable();
     this.filteredContacts = this.contacts;
   }
 
   inititialzeAndGetContacts(assetContacts: any): Contact[] {
-    return assetContacts.map((contact: any, index: number) => {
+    const initializedAssets = assetContacts.map((contact: any, index: number) => {
       return { ...contact, isSelected: false, isFavorite: false, id: index.toString() }
     })
+    this.sortContactByLastName(initializedAssets)
+    return initializedAssets;
   }
+
+  sortContactByLastName(contacts: Contact[]) {
+    contacts.sort((a: Contact, b: Contact) => {
+      const aLast = a.last.toLowerCase();
+      const bLast = b.last.toLowerCase();
+      return aLast < bLast ? -1 :
+        aLast > bLast ? 1 : 0;
+    });
+  }
+
+  setInputSearchData(inputSearchString: string) {
+    this.inputSearchString = inputSearchString;
+  }
+
+  getLastInputSearchData(): string {
+    return this.inputSearchString;
+  }
+
+
+
 
   getSelectedContact$(): Observable<Contact> {
     return this.selectedContact$;
@@ -68,6 +91,8 @@ export class ContactStateService {
       }
       return contact
     })
+    this.sortContactByLastName(this.contacts);
+    this.setInputSearchData("");
     this.contactsB$.next(this.contacts)
   }
 
@@ -75,6 +100,8 @@ export class ContactStateService {
     const id = this.contactsB$.value.length.toString();
     const newContact: Contact = { ...contactValues, isSelected: false, isFavorite: false, id }
     this.contacts.push(newContact)
+    this.sortContactByLastName(this.contacts);
+    this.setInputSearchData("");
     this.contactsB$.next(this.contacts)
 
   }

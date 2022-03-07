@@ -29,12 +29,7 @@
     <div class='form-row'>
       <label>
         Email
-        <div *ngIf="contact">
-          <input formControlName="email" class="form-control" type="email" name="email" [ngModel]="contact.email">
-        </div>
-        <div *ngIf="!contact">
-          <input formControlName="email" class="form-control" type="email" name="email" value="">
-        </div>
+        <input formControlName="email" class="form-control" type="email" name="email">
       </label>
     </div>
     <div class='form-row'>

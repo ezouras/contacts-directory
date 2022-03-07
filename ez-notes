@@ -8,7 +8,12 @@ add to imports array in app module
 The ng-model directive binds the value of
  HTML controls (input, select, text-area)
 to application data. It is a part of the FormsModule.
- 
+ 4/ error:
+ webpack-sources/lib/SizeOnlySource.js:16
+ 		return new Error(
+    a/ remove .angular folder
+    b/ npm install
+
 # WebApp
 
 ## To Do:
